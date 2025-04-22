@@ -108,3 +108,13 @@ JAMES      CLERK
 MILLER     CLERK
 
 14 rows selected.
+
+Q7.WAQTD DNAME A,D LOCATION OF EMPLOYEES IN LOWER CASE.
+SELECT LOWER(DNAME),LOWER(LOC) FROM DEPT;
+
+LOWER(DNAME)   LOWER(LOC)
+-------------- -------------
+accounting     new york
+research       dallas
+sales          chicago
+operations     boston
