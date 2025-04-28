@@ -108,3 +108,43 @@ accounting     new york
 research       dallas
 sales          chicago
 operations     boston
+
+Q9. WAQTD ROUND OFF THE SALARY TO THE NEAREST VALUE IN EMP TABLE.
+ SELECT ROUND(SAL) FROM EMP;
+
+ROUND(SAL)
+----------
+      5000
+      2850
+      2450
+      2975
+      3000
+      3000
+       800
+      1600
+      1250
+      1250
+      1500
+      1100
+       950
+      1300
+Q10. WAQTD THE SALARY THE LOWEST VALUE IN EMPLOYEE TABLE.
+
+SQL> SELECT TRUNC(SAL) FROM EMP;
+
+TRUNC(SAL)
+----------
+      5000
+      2850
+      2450
+      2975
+      3000
+      3000
+       800
+      1600
+      1250
+      1250
+      1500
+      1100
+       950
+      1300
