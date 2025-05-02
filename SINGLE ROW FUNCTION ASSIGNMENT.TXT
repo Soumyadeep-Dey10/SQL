@@ -320,3 +320,87 @@ jamES
 milLER
 
 14 rows selected.
+
+Q25.WAQTD TO JOIN A STRING 'HAPPY bIRTHDAY' TO EMPLOYEE NAME WHO ARE HIRED AFTER '01-JAN-1981'.
+
+SQL> SELECT CONCAT(ENAME,CONCAT(' ', 'HAPPY BIRTHDAY')) FROM EMP WHERE HIREDATE > '01-JAN-1981';
+
+CONCAT(ENAME,CONCAT('','H
+-------------------------
+KING HAPPY BIRTHDAY
+BLAKE HAPPY BIRTHDAY
+CLARK HAPPY BIRTHDAY
+JONES HAPPY BIRTHDAY
+SCOTT HAPPY BIRTHDAY
+FORD HAPPY BIRTHDAY
+ALLEN HAPPY BIRTHDAY
+WARD HAPPY BIRTHDAY
+MARTIN HAPPY BIRTHDAY
+TURNER HAPPY BIRTHDAY
+ADAMS HAPPY BIRTHDAY
+JAMES HAPPY BIRTHDAY
+MILLER HAPPY BIRTHDAY
+
+Q26.WAQTD THE DETAILS OF THE EMPLOYEE WHO ARE HIRED IN THE MONTH OF JULY.
+SQL> SELECT * FROM EMP WHERE TO_CHAR(HIREDATE,'MM') = '07';
+
+no rows selected
+
+Q27.WAQTD NAME,SALARY ALONG WITH HIREDATE WHO HIRED ON MONDAY.
+
+SQL> SELECT ENAME,SAL,HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE,'DY') = 'MON';
+
+ENAME             SAL HIREDATE
+---------- ---------- ---------
+MARTIN           1250 28-SEP-81
+
+Q28.WAQTD DETAILS OF THE EMPLOYEE WHO HIRED IN THE MONTH OF JANUARY ON WEDNESDAY ON 11 AM.
+SELECT * FROM EMP WHERE TO_CHAR(HIREDATE,'MM') = '01' AND TO_CHAR(HIREDATE,'DY') = 'WED' AND TO_CHAR(HIREDATE,'HH24') = '11';
+
+no rows selected
+
+Q29.WAQTD TOTAL EARNING(SAL+COMM) ALL THE EMPLOYEES ALONG WITH NAME AND HIREDATE.
+
+SQL> SELECT ENAME,SAL+NVL(COMM,0) AS EARNING FROM EMP;
+
+ENAME         EARNING
+---------- ----------
+KING             5000
+BLAKE            2850
+CLARK            2450
+JONES            2975
+SCOTT            3000
+FORD             3000
+SMITH             800
+ALLEN            1900
+WARD             1750
+MARTIN           2650
+TURNER           1500
+ADAMS            1100
+JAMES             950
+MILLER           1300
+
+14 rows selected.
+
+Q30.WAQTD DETAILS OF THE EMPLOEES WHO HAVE MORE THAN 35 YEARS OF EXPERIENCE.
+
+SQL> SELECT * FROM EMP WHERE TRUNC(TRUNC(MONTHS_BETWEEN(SYSDATE,HIREDATE))/12) > 35;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000                    20
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
