@@ -1,0 +1,59 @@
+Q1.WAQT update the salary of employee to double their salary if He is working as a manager .
+
+SQL> UPDATE EMP SET SAL = SAL * 2 WHERE JOB = 'MANAGER';
+
+3 rows updated.
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7698 BLAKE      MANAGER         7839 01-MAY-81       5700                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       4900                    10
+      7566 JONES      MANAGER         7839 02-APR-81       5950                    20
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000                    20
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+Q2.WAQT change the name of SMITH to SMIITH .
+
+UPDATE  EMP SET ENAME = 'SMIITH' WHERE ENAME = 'SMITH';
+
+1 row updated.
+
+Q3.WAQT modify the job of KING to 'PRESIDENT'.
+
+UPDATE EMP SET JOB = 'PRESIDENT' WHERE ENAME = 'KING';
+
+1 row updated.
+
+Q4.WAQT to change name of ALLEN to ALLEN MORGAN .
+
+SQL> UPDATE EMP SET ENAME = 'ALLEN MORGAN' WHERE ENAME = 'ALLEN';
+
+Q5.WAQT hike the salary of the employee to 10% . If employees earn less than 2000 as a salesman .
+
+UPDATE EMP SET SAL = SAL + (SAL * 0.1) WHERE SAL < 2000 AND JOB = 'SALESMAN';
+
+4 rows updated.
+
+Q6.WAQT delete the employees who don’t earn commission .
+SQL> DELETE FROM EMP WHERE COMM = NULL OR COMM = 0;
+
+1 row deleted.
+
+Q7.WAQto remove all the employees hired before 1987 in dept 20
+
+SQL> DELETE FROM EMP WHERE HIREDATE < ('01-JAN-87') AND DEPTNO = 20;
+
+5 rows deleted.
